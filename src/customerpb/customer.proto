@@ -5,18 +5,18 @@ package com.customer.manage;
 option go_package = "github.com/sunil206/customer_api/src/customerpb";
 
 message Customer {
-    uint32 customer_id = 1;
+    string customer_id = 1;
     string first_name = 2;
     string last_name = 3;
     string middle_name = 4;
     string title = 5;
-    string eamil = 6;
+    string email = 6;
     string home_phone = 7;
     string business_phone = 8;
     string gender_code = 9;
-    uint32 date_of_birth = 10;
-    uint32 created_at = 11;
-    uint32 updated_at = 12;
+    int64  date_of_birth = 10;
+    int64  created_at = 11;
+    int64  updated_at = 12;
 }
 
 message CustomerRequest {
@@ -31,7 +31,7 @@ message GetCustomerRequest{
     uint32 customer_id = 1;
 }
 
-message GetCustomerResposne {
+message GetCustomerResponse {
     Customer customer = 1;
 }
 
@@ -61,7 +61,7 @@ message ListCustomersResponse{
 
 service CustomerService{
     rpc CreateCustomer(CustomerRequest) returns (CustomerResponse);
-    rpc GetCustomer(GetCustomerRequest) returns (GetCustomerResposne);
+    rpc GetCustomer(GetCustomerRequest) returns (GetCustomerResponse);
     rpc UpdateCustomer(UpdateCustomerRequest) returns (UpdateCustomerResponse);
     rpc DeleteCustomer(DeleteCustomerRequest) returns (DeleteCustomerResponse);
     rpc ListCustomers(ListCustomersRequest) returns (ListCustomersResponse);

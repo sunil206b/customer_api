@@ -34,18 +34,18 @@ type Customer struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	CustomerId    uint32 `protobuf:"varint,1,opt,name=customer_id,json=customerId,proto3" json:"customer_id,omitempty"`
+	CustomerId    string `protobuf:"bytes,1,opt,name=customer_id,json=customerId,proto3" json:"customer_id,omitempty"`
 	FirstName     string `protobuf:"bytes,2,opt,name=first_name,json=firstName,proto3" json:"first_name,omitempty"`
 	LastName      string `protobuf:"bytes,3,opt,name=last_name,json=lastName,proto3" json:"last_name,omitempty"`
 	MiddleName    string `protobuf:"bytes,4,opt,name=middle_name,json=middleName,proto3" json:"middle_name,omitempty"`
 	Title         string `protobuf:"bytes,5,opt,name=title,proto3" json:"title,omitempty"`
-	Eamil         string `protobuf:"bytes,6,opt,name=eamil,proto3" json:"eamil,omitempty"`
+	Email         string `protobuf:"bytes,6,opt,name=email,proto3" json:"email,omitempty"`
 	HomePhone     string `protobuf:"bytes,7,opt,name=home_phone,json=homePhone,proto3" json:"home_phone,omitempty"`
 	BusinessPhone string `protobuf:"bytes,8,opt,name=business_phone,json=businessPhone,proto3" json:"business_phone,omitempty"`
 	GenderCode    string `protobuf:"bytes,9,opt,name=gender_code,json=genderCode,proto3" json:"gender_code,omitempty"`
-	DateOfBirth   uint32 `protobuf:"varint,10,opt,name=date_of_birth,json=dateOfBirth,proto3" json:"date_of_birth,omitempty"`
-	CreatedAt     uint32 `protobuf:"varint,11,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
-	UpdatedAt     uint32 `protobuf:"varint,12,opt,name=updated_at,json=updatedAt,proto3" json:"updated_at,omitempty"`
+	DateOfBirth   int64  `protobuf:"varint,10,opt,name=date_of_birth,json=dateOfBirth,proto3" json:"date_of_birth,omitempty"`
+	CreatedAt     int64  `protobuf:"varint,11,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
+	UpdatedAt     int64  `protobuf:"varint,12,opt,name=updated_at,json=updatedAt,proto3" json:"updated_at,omitempty"`
 }
 
 func (x *Customer) Reset() {
@@ -80,11 +80,11 @@ func (*Customer) Descriptor() ([]byte, []int) {
 	return file_customer_proto_rawDescGZIP(), []int{0}
 }
 
-func (x *Customer) GetCustomerId() uint32 {
+func (x *Customer) GetCustomerId() string {
 	if x != nil {
 		return x.CustomerId
 	}
-	return 0
+	return ""
 }
 
 func (x *Customer) GetFirstName() string {
@@ -115,9 +115,9 @@ func (x *Customer) GetTitle() string {
 	return ""
 }
 
-func (x *Customer) GetEamil() string {
+func (x *Customer) GetEmail() string {
 	if x != nil {
-		return x.Eamil
+		return x.Email
 	}
 	return ""
 }
@@ -143,21 +143,21 @@ func (x *Customer) GetGenderCode() string {
 	return ""
 }
 
-func (x *Customer) GetDateOfBirth() uint32 {
+func (x *Customer) GetDateOfBirth() int64 {
 	if x != nil {
 		return x.DateOfBirth
 	}
 	return 0
 }
 
-func (x *Customer) GetCreatedAt() uint32 {
+func (x *Customer) GetCreatedAt() int64 {
 	if x != nil {
 		return x.CreatedAt
 	}
 	return 0
 }
 
-func (x *Customer) GetUpdatedAt() uint32 {
+func (x *Customer) GetUpdatedAt() int64 {
 	if x != nil {
 		return x.UpdatedAt
 	}
@@ -305,7 +305,7 @@ func (x *GetCustomerRequest) GetCustomerId() uint32 {
 	return 0
 }
 
-type GetCustomerResposne struct {
+type GetCustomerResponse struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
@@ -313,8 +313,8 @@ type GetCustomerResposne struct {
 	Customer *Customer `protobuf:"bytes,1,opt,name=customer,proto3" json:"customer,omitempty"`
 }
 
-func (x *GetCustomerResposne) Reset() {
-	*x = GetCustomerResposne{}
+func (x *GetCustomerResponse) Reset() {
+	*x = GetCustomerResponse{}
 	if protoimpl.UnsafeEnabled {
 		mi := &file_customer_proto_msgTypes[4]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -322,13 +322,13 @@ func (x *GetCustomerResposne) Reset() {
 	}
 }
 
-func (x *GetCustomerResposne) String() string {
+func (x *GetCustomerResponse) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*GetCustomerResposne) ProtoMessage() {}
+func (*GetCustomerResponse) ProtoMessage() {}
 
-func (x *GetCustomerResposne) ProtoReflect() protoreflect.Message {
+func (x *GetCustomerResponse) ProtoReflect() protoreflect.Message {
 	mi := &file_customer_proto_msgTypes[4]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -340,12 +340,12 @@ func (x *GetCustomerResposne) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use GetCustomerResposne.ProtoReflect.Descriptor instead.
-func (*GetCustomerResposne) Descriptor() ([]byte, []int) {
+// Deprecated: Use GetCustomerResponse.ProtoReflect.Descriptor instead.
+func (*GetCustomerResponse) Descriptor() ([]byte, []int) {
 	return file_customer_proto_rawDescGZIP(), []int{4}
 }
 
-func (x *GetCustomerResposne) GetCustomer() *Customer {
+func (x *GetCustomerResponse) GetCustomer() *Customer {
 	if x != nil {
 		return x.Customer
 	}
@@ -632,7 +632,7 @@ var file_customer_proto_rawDesc = []byte{
 	0x12, 0x13, 0x63, 0x6f, 0x6d, 0x2e, 0x63, 0x75, 0x73, 0x74, 0x6f, 0x6d, 0x65, 0x72, 0x2e, 0x6d,
 	0x61, 0x6e, 0x61, 0x67, 0x65, 0x22, 0xfd, 0x02, 0x0a, 0x08, 0x43, 0x75, 0x73, 0x74, 0x6f, 0x6d,
 	0x65, 0x72, 0x12, 0x1f, 0x0a, 0x0b, 0x63, 0x75, 0x73, 0x74, 0x6f, 0x6d, 0x65, 0x72, 0x5f, 0x69,
-	0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0d, 0x52, 0x0a, 0x63, 0x75, 0x73, 0x74, 0x6f, 0x6d, 0x65,
+	0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x0a, 0x63, 0x75, 0x73, 0x74, 0x6f, 0x6d, 0x65,
 	0x72, 0x49, 0x64, 0x12, 0x1d, 0x0a, 0x0a, 0x66, 0x69, 0x72, 0x73, 0x74, 0x5f, 0x6e, 0x61, 0x6d,
 	0x65, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x09, 0x66, 0x69, 0x72, 0x73, 0x74, 0x4e, 0x61,
 	0x6d, 0x65, 0x12, 0x1b, 0x0a, 0x09, 0x6c, 0x61, 0x73, 0x74, 0x5f, 0x6e, 0x61, 0x6d, 0x65, 0x18,
@@ -640,8 +640,8 @@ var file_customer_proto_rawDesc = []byte{
 	0x1f, 0x0a, 0x0b, 0x6d, 0x69, 0x64, 0x64, 0x6c, 0x65, 0x5f, 0x6e, 0x61, 0x6d, 0x65, 0x18, 0x04,
 	0x20, 0x01, 0x28, 0x09, 0x52, 0x0a, 0x6d, 0x69, 0x64, 0x64, 0x6c, 0x65, 0x4e, 0x61, 0x6d, 0x65,
 	0x12, 0x14, 0x0a, 0x05, 0x74, 0x69, 0x74, 0x6c, 0x65, 0x18, 0x05, 0x20, 0x01, 0x28, 0x09, 0x52,
-	0x05, 0x74, 0x69, 0x74, 0x6c, 0x65, 0x12, 0x14, 0x0a, 0x05, 0x65, 0x61, 0x6d, 0x69, 0x6c, 0x18,
-	0x06, 0x20, 0x01, 0x28, 0x09, 0x52, 0x05, 0x65, 0x61, 0x6d, 0x69, 0x6c, 0x12, 0x1d, 0x0a, 0x0a,
+	0x05, 0x74, 0x69, 0x74, 0x6c, 0x65, 0x12, 0x14, 0x0a, 0x05, 0x65, 0x6d, 0x61, 0x69, 0x6c, 0x18,
+	0x06, 0x20, 0x01, 0x28, 0x09, 0x52, 0x05, 0x65, 0x6d, 0x61, 0x69, 0x6c, 0x12, 0x1d, 0x0a, 0x0a,
 	0x68, 0x6f, 0x6d, 0x65, 0x5f, 0x70, 0x68, 0x6f, 0x6e, 0x65, 0x18, 0x07, 0x20, 0x01, 0x28, 0x09,
 	0x52, 0x09, 0x68, 0x6f, 0x6d, 0x65, 0x50, 0x68, 0x6f, 0x6e, 0x65, 0x12, 0x25, 0x0a, 0x0e, 0x62,
 	0x75, 0x73, 0x69, 0x6e, 0x65, 0x73, 0x73, 0x5f, 0x70, 0x68, 0x6f, 0x6e, 0x65, 0x18, 0x08, 0x20,
@@ -649,11 +649,11 @@ var file_customer_proto_rawDesc = []byte{
 	0x6e, 0x65, 0x12, 0x1f, 0x0a, 0x0b, 0x67, 0x65, 0x6e, 0x64, 0x65, 0x72, 0x5f, 0x63, 0x6f, 0x64,
 	0x65, 0x18, 0x09, 0x20, 0x01, 0x28, 0x09, 0x52, 0x0a, 0x67, 0x65, 0x6e, 0x64, 0x65, 0x72, 0x43,
 	0x6f, 0x64, 0x65, 0x12, 0x22, 0x0a, 0x0d, 0x64, 0x61, 0x74, 0x65, 0x5f, 0x6f, 0x66, 0x5f, 0x62,
-	0x69, 0x72, 0x74, 0x68, 0x18, 0x0a, 0x20, 0x01, 0x28, 0x0d, 0x52, 0x0b, 0x64, 0x61, 0x74, 0x65,
+	0x69, 0x72, 0x74, 0x68, 0x18, 0x0a, 0x20, 0x01, 0x28, 0x03, 0x52, 0x0b, 0x64, 0x61, 0x74, 0x65,
 	0x4f, 0x66, 0x42, 0x69, 0x72, 0x74, 0x68, 0x12, 0x1d, 0x0a, 0x0a, 0x63, 0x72, 0x65, 0x61, 0x74,
-	0x65, 0x64, 0x5f, 0x61, 0x74, 0x18, 0x0b, 0x20, 0x01, 0x28, 0x0d, 0x52, 0x09, 0x63, 0x72, 0x65,
+	0x65, 0x64, 0x5f, 0x61, 0x74, 0x18, 0x0b, 0x20, 0x01, 0x28, 0x03, 0x52, 0x09, 0x63, 0x72, 0x65,
 	0x61, 0x74, 0x65, 0x64, 0x41, 0x74, 0x12, 0x1d, 0x0a, 0x0a, 0x75, 0x70, 0x64, 0x61, 0x74, 0x65,
-	0x64, 0x5f, 0x61, 0x74, 0x18, 0x0c, 0x20, 0x01, 0x28, 0x0d, 0x52, 0x09, 0x75, 0x70, 0x64, 0x61,
+	0x64, 0x5f, 0x61, 0x74, 0x18, 0x0c, 0x20, 0x01, 0x28, 0x03, 0x52, 0x09, 0x75, 0x70, 0x64, 0x61,
 	0x74, 0x65, 0x64, 0x41, 0x74, 0x22, 0x4c, 0x0a, 0x0f, 0x43, 0x75, 0x73, 0x74, 0x6f, 0x6d, 0x65,
 	0x72, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x39, 0x0a, 0x08, 0x63, 0x75, 0x73, 0x74,
 	0x6f, 0x6d, 0x65, 0x72, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x1d, 0x2e, 0x63, 0x6f, 0x6d,
@@ -668,7 +668,7 @@ var file_customer_proto_rawDesc = []byte{
 	0x72, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x1f, 0x0a, 0x0b, 0x63, 0x75, 0x73, 0x74,
 	0x6f, 0x6d, 0x65, 0x72, 0x5f, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0d, 0x52, 0x0a, 0x63,
 	0x75, 0x73, 0x74, 0x6f, 0x6d, 0x65, 0x72, 0x49, 0x64, 0x22, 0x50, 0x0a, 0x13, 0x47, 0x65, 0x74,
-	0x43, 0x75, 0x73, 0x74, 0x6f, 0x6d, 0x65, 0x72, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x73, 0x6e, 0x65,
+	0x43, 0x75, 0x73, 0x74, 0x6f, 0x6d, 0x65, 0x72, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65,
 	0x12, 0x39, 0x0a, 0x08, 0x63, 0x75, 0x73, 0x74, 0x6f, 0x6d, 0x65, 0x72, 0x18, 0x01, 0x20, 0x01,
 	0x28, 0x0b, 0x32, 0x1d, 0x2e, 0x63, 0x6f, 0x6d, 0x2e, 0x63, 0x75, 0x73, 0x74, 0x6f, 0x6d, 0x65,
 	0x72, 0x2e, 0x6d, 0x61, 0x6e, 0x61, 0x67, 0x65, 0x2e, 0x43, 0x75, 0x73, 0x74, 0x6f, 0x6d, 0x65,
@@ -708,8 +708,8 @@ var file_customer_proto_rawDesc = []byte{
 	0x61, 0x6e, 0x61, 0x67, 0x65, 0x2e, 0x47, 0x65, 0x74, 0x43, 0x75, 0x73, 0x74, 0x6f, 0x6d, 0x65,
 	0x72, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x28, 0x2e, 0x63, 0x6f, 0x6d, 0x2e, 0x63,
 	0x75, 0x73, 0x74, 0x6f, 0x6d, 0x65, 0x72, 0x2e, 0x6d, 0x61, 0x6e, 0x61, 0x67, 0x65, 0x2e, 0x47,
-	0x65, 0x74, 0x43, 0x75, 0x73, 0x74, 0x6f, 0x6d, 0x65, 0x72, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x73,
-	0x6e, 0x65, 0x12, 0x69, 0x0a, 0x0e, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x43, 0x75, 0x73, 0x74,
+	0x65, 0x74, 0x43, 0x75, 0x73, 0x74, 0x6f, 0x6d, 0x65, 0x72, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e,
+	0x73, 0x65, 0x12, 0x69, 0x0a, 0x0e, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x43, 0x75, 0x73, 0x74,
 	0x6f, 0x6d, 0x65, 0x72, 0x12, 0x2a, 0x2e, 0x63, 0x6f, 0x6d, 0x2e, 0x63, 0x75, 0x73, 0x74, 0x6f,
 	0x6d, 0x65, 0x72, 0x2e, 0x6d, 0x61, 0x6e, 0x61, 0x67, 0x65, 0x2e, 0x55, 0x70, 0x64, 0x61, 0x74,
 	0x65, 0x43, 0x75, 0x73, 0x74, 0x6f, 0x6d, 0x65, 0x72, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74,
@@ -753,7 +753,7 @@ var file_customer_proto_goTypes = []interface{}{
 	(*CustomerRequest)(nil),        // 1: com.customer.manage.CustomerRequest
 	(*CustomerResponse)(nil),       // 2: com.customer.manage.CustomerResponse
 	(*GetCustomerRequest)(nil),     // 3: com.customer.manage.GetCustomerRequest
-	(*GetCustomerResposne)(nil),    // 4: com.customer.manage.GetCustomerResposne
+	(*GetCustomerResponse)(nil),    // 4: com.customer.manage.GetCustomerResponse
 	(*UpdateCustomerRequest)(nil),  // 5: com.customer.manage.UpdateCustomerRequest
 	(*UpdateCustomerResponse)(nil), // 6: com.customer.manage.UpdateCustomerResponse
 	(*DeleteCustomerRequest)(nil),  // 7: com.customer.manage.DeleteCustomerRequest
@@ -764,7 +764,7 @@ var file_customer_proto_goTypes = []interface{}{
 var file_customer_proto_depIdxs = []int32{
 	0,  // 0: com.customer.manage.CustomerRequest.customer:type_name -> com.customer.manage.Customer
 	0,  // 1: com.customer.manage.CustomerResponse.customer:type_name -> com.customer.manage.Customer
-	0,  // 2: com.customer.manage.GetCustomerResposne.customer:type_name -> com.customer.manage.Customer
+	0,  // 2: com.customer.manage.GetCustomerResponse.customer:type_name -> com.customer.manage.Customer
 	0,  // 3: com.customer.manage.UpdateCustomerResponse.customer:type_name -> com.customer.manage.Customer
 	0,  // 4: com.customer.manage.ListCustomersResponse.customers:type_name -> com.customer.manage.Customer
 	1,  // 5: com.customer.manage.CustomerService.CreateCustomer:input_type -> com.customer.manage.CustomerRequest
@@ -773,7 +773,7 @@ var file_customer_proto_depIdxs = []int32{
 	7,  // 8: com.customer.manage.CustomerService.DeleteCustomer:input_type -> com.customer.manage.DeleteCustomerRequest
 	9,  // 9: com.customer.manage.CustomerService.ListCustomers:input_type -> com.customer.manage.ListCustomersRequest
 	2,  // 10: com.customer.manage.CustomerService.CreateCustomer:output_type -> com.customer.manage.CustomerResponse
-	4,  // 11: com.customer.manage.CustomerService.GetCustomer:output_type -> com.customer.manage.GetCustomerResposne
+	4,  // 11: com.customer.manage.CustomerService.GetCustomer:output_type -> com.customer.manage.GetCustomerResponse
 	6,  // 12: com.customer.manage.CustomerService.UpdateCustomer:output_type -> com.customer.manage.UpdateCustomerResponse
 	8,  // 13: com.customer.manage.CustomerService.DeleteCustomer:output_type -> com.customer.manage.DeleteCustomerResponse
 	10, // 14: com.customer.manage.CustomerService.ListCustomers:output_type -> com.customer.manage.ListCustomersResponse
@@ -839,7 +839,7 @@ func file_customer_proto_init() {
 			}
 		}
 		file_customer_proto_msgTypes[4].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*GetCustomerResposne); i {
+			switch v := v.(*GetCustomerResponse); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -956,7 +956,7 @@ const _ = grpc.SupportPackageIsVersion6
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://godoc.org/google.golang.org/grpc#ClientConn.NewStream.
 type CustomerServiceClient interface {
 	CreateCustomer(ctx context.Context, in *CustomerRequest, opts ...grpc.CallOption) (*CustomerResponse, error)
-	GetCustomer(ctx context.Context, in *GetCustomerRequest, opts ...grpc.CallOption) (*GetCustomerResposne, error)
+	GetCustomer(ctx context.Context, in *GetCustomerRequest, opts ...grpc.CallOption) (*GetCustomerResponse, error)
 	UpdateCustomer(ctx context.Context, in *UpdateCustomerRequest, opts ...grpc.CallOption) (*UpdateCustomerResponse, error)
 	DeleteCustomer(ctx context.Context, in *DeleteCustomerRequest, opts ...grpc.CallOption) (*DeleteCustomerResponse, error)
 	ListCustomers(ctx context.Context, in *ListCustomersRequest, opts ...grpc.CallOption) (*ListCustomersResponse, error)
@@ -979,8 +979,8 @@ func (c *customerServiceClient) CreateCustomer(ctx context.Context, in *Customer
 	return out, nil
 }
 
-func (c *customerServiceClient) GetCustomer(ctx context.Context, in *GetCustomerRequest, opts ...grpc.CallOption) (*GetCustomerResposne, error) {
-	out := new(GetCustomerResposne)
+func (c *customerServiceClient) GetCustomer(ctx context.Context, in *GetCustomerRequest, opts ...grpc.CallOption) (*GetCustomerResponse, error) {
+	out := new(GetCustomerResponse)
 	err := c.cc.Invoke(ctx, "/com.customer.manage.CustomerService/GetCustomer", in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -1018,7 +1018,7 @@ func (c *customerServiceClient) ListCustomers(ctx context.Context, in *ListCusto
 // CustomerServiceServer is the server API for CustomerService service.
 type CustomerServiceServer interface {
 	CreateCustomer(context.Context, *CustomerRequest) (*CustomerResponse, error)
-	GetCustomer(context.Context, *GetCustomerRequest) (*GetCustomerResposne, error)
+	GetCustomer(context.Context, *GetCustomerRequest) (*GetCustomerResponse, error)
 	UpdateCustomer(context.Context, *UpdateCustomerRequest) (*UpdateCustomerResponse, error)
 	DeleteCustomer(context.Context, *DeleteCustomerRequest) (*DeleteCustomerResponse, error)
 	ListCustomers(context.Context, *ListCustomersRequest) (*ListCustomersResponse, error)
@@ -1031,7 +1031,7 @@ type UnimplementedCustomerServiceServer struct {
 func (*UnimplementedCustomerServiceServer) CreateCustomer(context.Context, *CustomerRequest) (*CustomerResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CreateCustomer not implemented")
 }
-func (*UnimplementedCustomerServiceServer) GetCustomer(context.Context, *GetCustomerRequest) (*GetCustomerResposne, error) {
+func (*UnimplementedCustomerServiceServer) GetCustomer(context.Context, *GetCustomerRequest) (*GetCustomerResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetCustomer not implemented")
 }
 func (*UnimplementedCustomerServiceServer) UpdateCustomer(context.Context, *UpdateCustomerRequest) (*UpdateCustomerResponse, error) {
