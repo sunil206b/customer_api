@@ -1,0 +1,1 @@
+protoc --proto_path=src/customerpb --go_out=plugins=grpc:src/customerpb --go_opt=paths=source_relative src/customerpb/customer.proto
