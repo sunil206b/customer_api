@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="33676d56-e7a7-4aa4-a54a-0a954493663b" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/customerpb/customer.pb.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/customerpb/customer.pb.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/customerpb/customer.proto" beforeDir="false" afterPath="$PROJECT_DIR$/src/customerpb/customer.proto" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/service/server_service.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/server_service.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,5 +55,23 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state width="1566" height="254" key="GridCell.Tab.0.bottom" timestamp="1600892671484">
+      <screen x="1680" y="23" width="1920" height="1057" />
+    </state>
+    <state width="1566" height="254" key="GridCell.Tab.0.bottom/1680.23.1920.1057/0.23.1680.973@1680.23.1920.1057" timestamp="1600892671484" />
+    <state width="1566" height="254" key="GridCell.Tab.0.center" timestamp="1600892671484">
+      <screen x="1680" y="23" width="1920" height="1057" />
+    </state>
+    <state width="1566" height="254" key="GridCell.Tab.0.center/1680.23.1920.1057/0.23.1680.973@1680.23.1920.1057" timestamp="1600892671484" />
+    <state width="1566" height="254" key="GridCell.Tab.0.left" timestamp="1600892671483">
+      <screen x="1680" y="23" width="1920" height="1057" />
+    </state>
+    <state width="1566" height="254" key="GridCell.Tab.0.left/1680.23.1920.1057/0.23.1680.973@1680.23.1920.1057" timestamp="1600892671483" />
+    <state width="1566" height="254" key="GridCell.Tab.0.right" timestamp="1600892671484">
+      <screen x="1680" y="23" width="1920" height="1057" />
+    </state>
+    <state width="1566" height="254" key="GridCell.Tab.0.right/1680.23.1920.1057/0.23.1680.973@1680.23.1920.1057" timestamp="1600892671484" />
   </component>
 </project>

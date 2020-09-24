@@ -28,7 +28,7 @@ message CustomerResponse {
 }
 
 message GetCustomerRequest{
-    uint32 customer_id = 1;
+    string customer_id = 1;
 }
 
 message GetCustomerResponse {
@@ -36,7 +36,7 @@ message GetCustomerResponse {
 }
 
 message UpdateCustomerRequest{
-    uint32 customer_id = 1;
+    Customer customer = 1;
 }
 
 message UpdateCustomerResponse{
@@ -44,11 +44,11 @@ message UpdateCustomerResponse{
 }
 
 message DeleteCustomerRequest{
-    uint32 customer_id = 1;
+    string customer_id = 1;
 }
 
 message DeleteCustomerResponse{
-    uint32 customer_id = 1;
+    string customer_id = 1;
 }
 
 message ListCustomersRequest{
