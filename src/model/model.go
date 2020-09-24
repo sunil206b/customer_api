@@ -37,7 +37,7 @@ func (customer *Customer) CopyToModelCustomer(cust *customerpb.Customer) {
 	if cust.DateOfBirth != 0 {
 		customer.DateOfBirth = time.Unix(int64(cust.DateOfBirth), 0)
 	}
-	if !customer.CreatedAt.IsZero() {
+	if customer.CreatedAt.IsZero() {
 		customer.CreatedAt = time.Now()
 	}
 	customer.UpdatedAt = time.Now()

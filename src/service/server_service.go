@@ -41,6 +41,11 @@ func (s *Server) CreateCustomer(ctx context.Context, req *customerpb.CustomerReq
 	}
 	modelCustomer.ID = oid
 	modelCustomer.CustomerID = oid.Hex()
+	filter := bson.M{"_id": oid}
+	_, err = s.collection.ReplaceOne(ctx, filter, modelCustomer)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "Cannot update the customer with specified Id: %v\n", err)
+	}
 	modelCustomer.CopyFromModelCustomer(customer)
 	return &customerpb.CustomerResponse{
 		Customer: customer,
@@ -116,7 +121,7 @@ func (s *Server) DeleteCustomer(ctx context.Context, req *customerpb.DeleteCusto
 // ListCustomers GRPC method implemented on Server to Get all the customer in DB
 func (s *Server) ListCustomers(ctx context.Context, req *customerpb.ListCustomersRequest) (*customerpb.ListCustomersResponse, error) {
 	log.Println("Inside ListCustomers GRPC server service...")
-	cur, err := s.collection.Find(ctx, primitive.D{{}})
+	cur, err := s.collection.Find(ctx, primitive.D{})
 	if err != nil || cur.Err() != nil {
 		return nil, status.Errorf(codes.Internal, "Error occurred while getting all customers from DB %v\n", err)
 	}
